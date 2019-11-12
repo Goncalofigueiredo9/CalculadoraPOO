@@ -28,8 +28,8 @@ namespace CalculadoraPOO
                     case "C": visor = "0"; break;
                     case "MC": mem = 0; break;
                     case "MR": visor = mem.ToString(); break;
-                    case "M-": mem = -ecra; break;
-                    case "M+": mem = ecra; break;
+                    case "M-": mem -= ecra; break;
+                    case "M+": mem += ecra; break;
                     case "v":; break;
                     case "%":; break;
                     case "+/-":; break;
