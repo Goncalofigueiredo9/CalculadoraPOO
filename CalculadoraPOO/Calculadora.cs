@@ -24,7 +24,7 @@ namespace CalculadoraPOO
                 switch (value)
                 {
                     case "OFF": visor = ""; break;
-                    case "AC": visor = "0"; break;
+                    case "AC": visor = "0"; mem = 0; break;
                     case "C": visor = "0"; break;
                     case "MC": mem = 0; break;
                     case "MR": visor = mem.ToString(); break;
