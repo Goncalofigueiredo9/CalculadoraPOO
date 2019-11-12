@@ -21,7 +21,7 @@ namespace CalculadoraPOO
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            label1.Text = casio.output;
         }
 
         private void Button19_Click(object sender, EventArgs e)
