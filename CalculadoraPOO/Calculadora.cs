@@ -31,9 +31,9 @@ namespace CalculadoraPOO
                     case "MR": visor = mem.ToString(); break;
                     case "M-": mem -= ecra; break;
                     case "M+": mem += ecra; break;
-                    case "v":; break;
-                    case "%":; break;
-                    case "+/-":; break;
+                    case "v":; visor = Math.Sqrt(ecra).ToString(); break;
+                    case "%":; visor = (anterior * ecra / 100).ToString(); break;
+                    case "+/-":; visor = (-ecra).ToString(); break;
                     case "/":
                     case "x":
                     case "-":
@@ -55,7 +55,8 @@ namespace CalculadoraPOO
                         case "-": anterior -= ecra; break; 
                         case "x": anterior *= ecra; break;
                         case "/": anterior /= ecra; break;
-                        case "=":; break;
+                        case "=":; anterior = ecra; break;
+
                     }
                 visor = anterior.ToString();
                 operador = value;
