@@ -8,8 +8,9 @@ namespace CalculadoraPOO
 {
     class Calculadora
     {
-        private string visor;
-        private double mem;
+        private string visor, operador="";
+        private double mem, anterior;
+        private bool op;
 
         public Calculadora()
         {
@@ -37,12 +38,50 @@ namespace CalculadoraPOO
                     case "x":
                     case "-":
                     case "+":
-                    case "=":; break;
-                    case ".": if (!visor.Contains(",")) visor += ","; break;
-                    default: visor += value; break;
+                    case "=": operar = value; break;
+                    default: adicionar = value; break;
                 }
             }
         }
+
+        private string operar
+        {
+            set
+            {
+                if (operador == "") anterior = ecra;
+                if (!op) switch (operador)
+                    {
+                        case "+": anterior += ecra; break;
+                        case "-": anterior -= ecra; break; 
+                        case "x": anterior *= ecra; break;
+                        case "/": anterior /= ecra; break;
+                        case "=":; break;
+                    }
+                visor = anterior.ToString();
+                operador = value;
+                op = true;
+            }
+        }
+        private string adicionar
+        {
+            set
+            {
+                if (op)
+                {
+
+                    visor = "0";
+                    op = false;
+                }
+                if (value == ".")
+                {
+                    if (!visor.Contains(",")) visor += ",";
+                    return;
+                }
+                if (visor == "0") visor = value;
+                else visor += value;
+            }
+        }
+
         private double ecra
         {
             get
